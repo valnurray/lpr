@@ -1,7 +1,6 @@
 package com.lankin.lpr.service;
 
 import com.lankin.lpr.model.Product;
-import com.lankin.lpr.model.Role;
 
 import java.util.List;
 

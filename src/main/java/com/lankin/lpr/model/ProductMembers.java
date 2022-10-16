@@ -18,6 +18,9 @@ import java.util.Date;
 @Table(name="productMembers")
 public class ProductMembers {
 
+    public ProductMembers(){
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_members_id")
