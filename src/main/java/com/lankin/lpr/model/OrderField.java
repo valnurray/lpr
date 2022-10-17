@@ -19,6 +19,9 @@ import java.util.Date;
 @Table(name="orderfield")
 public class OrderField {
 
+    public OrderField () {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
