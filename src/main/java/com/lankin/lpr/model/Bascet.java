@@ -19,6 +19,9 @@ import java.util.List;
 @Table(name="bascet")
 public class Bascet {
 
+    public Bascet(){
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bascet_id")

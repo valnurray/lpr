@@ -1,7 +1,6 @@
 package com.lankin.lpr.controller;
 
 import com.lankin.lpr.model.ProductMembers;
-import com.lankin.lpr.model.Role;
 import com.lankin.lpr.service.ProductMembersService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
