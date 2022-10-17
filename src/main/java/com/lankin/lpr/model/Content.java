@@ -19,6 +19,9 @@ import java.util.List;
 @Table(name="content")
 public class Content {
 
+    public Content () {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "content_id")

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/orderField")
+@RequestMapping("/api/orderfield")
 public class OrderFieldController {
 
     private OrderFieldService orderFieldService;
