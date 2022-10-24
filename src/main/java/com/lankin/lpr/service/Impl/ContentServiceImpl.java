@@ -2,7 +2,6 @@ package com.lankin.lpr.service.Impl;
 
 import com.lankin.lpr.exception.ResourceNotFoundException;
 import com.lankin.lpr.model.Content;
-import com.lankin.lpr.model.Role;
 import com.lankin.lpr.repository.ContentRepository;
 import com.lankin.lpr.service.ContentService;
 import org.springframework.stereotype.Service;

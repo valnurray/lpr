@@ -16,36 +16,27 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="content")
-public class Content {
+@Table(name="category")
+public class Category {
 
-    public Content () {
+    public Category(){
     }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "content_id")
-    private long contentId;
+    @Column(name = "category_id")
+    private long categoryId;
 
     @NotNull
     @Column(name = "title")
     private String title;
 
     @NotNull
-    @Column(name = "info")
-    private String info;
-
-    @NotNull
-    @Column(name = "link")
-    private String link;
+    @Column(name = "description")
+    private String description;
 
     @ManyToMany
-    @JoinTable(name = "product_content",
-            joinColumns = @JoinColumn(name = "content_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id"))
-    List<Product> products;
-
-    @ManyToMany(mappedBy = "contents")
-    List<Category> categories;
-
+    @JoinTable(name = "category_content",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "content_id"))
+    List<Content> contents;
 }
