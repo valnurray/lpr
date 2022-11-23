@@ -1,5 +1,8 @@
 package com.lankin.lpr.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
@@ -12,11 +15,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 @Data
 @Entity
 @Table(name="category")
+@XmlRootElement
 public class Category {
 
     public Category(){
@@ -35,6 +40,7 @@ public class Category {
     private String description;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(name = "category_content",
             joinColumns = @JoinColumn(name = "category_id"),
             inverseJoinColumns = @JoinColumn(name = "content_id"))

@@ -1,5 +1,8 @@
 package com.lankin.lpr.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
@@ -13,12 +16,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.util.List;
 
 @Data
 @Entity
 @Table(name="users")
+@XmlRootElement
 public class User {
 
     public User() {
@@ -48,12 +53,15 @@ public class User {
     private Date birthday;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "roles_id")
     private Role role;
 
+    @JsonIgnore
     @OneToMany (mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<ProductMembers> productMembers;
 
+    @JsonIgnore
     @OneToMany (mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<OrderField> orderFields;
 
