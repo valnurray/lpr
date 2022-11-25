@@ -1,5 +1,6 @@
 package com.lankin.lpr.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
@@ -35,6 +36,7 @@ public class Bascet {
     @Column(name = "total_orders_price")
     private BigDecimal totalOrderPrice;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "bascet", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<OrderField> orderFields;
 

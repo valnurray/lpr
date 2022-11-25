@@ -1,5 +1,6 @@
 package com.lankin.lpr.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
@@ -39,12 +40,14 @@ public class Content {
     @Column(name = "link")
     private String link;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "product_content",
             joinColumns = @JoinColumn(name = "content_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     List<Product> products;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "contents")
     List<Category> categories;
 

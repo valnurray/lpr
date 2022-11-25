@@ -1,5 +1,6 @@
 package com.lankin.lpr.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
@@ -35,14 +36,17 @@ public class OrderField {
     @Column(name = "total_price")
     private BigDecimal totalPrice;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "product_id")
     private Product product;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "bascet_id")
     private Bascet bascet;

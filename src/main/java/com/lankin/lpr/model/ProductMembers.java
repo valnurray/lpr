@@ -1,5 +1,6 @@
 package com.lankin.lpr.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
@@ -31,10 +32,12 @@ public class ProductMembers {
     private Date orderTime;
 
     @ManyToOne()
+    @JsonIgnore
     @JoinColumn(name = "product_id")
     private Product product;
 
     @ManyToOne()
+    @JsonIgnore
     @JoinColumn(name = "user_id")
     private User user;
 

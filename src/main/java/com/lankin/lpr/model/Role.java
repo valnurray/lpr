@@ -1,5 +1,6 @@
 package com.lankin.lpr.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
@@ -30,6 +31,7 @@ public class Role {
     @Column(name = "roles")
     private String roles;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "role", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<User> users;
 

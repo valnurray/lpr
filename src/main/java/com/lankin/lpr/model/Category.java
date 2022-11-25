@@ -21,7 +21,6 @@ import java.util.List;
 @Data
 @Entity
 @Table(name="category")
-@XmlRootElement
 public class Category {
 
     public Category(){

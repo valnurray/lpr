@@ -23,7 +23,6 @@ import java.util.List;
 @Data
 @Entity
 @Table(name="users")
-@XmlRootElement
 public class User {
 
     public User() {

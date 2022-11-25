@@ -1,5 +1,6 @@
 package com.lankin.lpr.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
@@ -44,12 +45,15 @@ public class Product {
     @Column(name = "info")
     private String info;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<ProductMembers> productMembers;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<OrderField> orderFields;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "products")
     List<Content> contents;
 
