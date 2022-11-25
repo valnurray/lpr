@@ -57,4 +57,8 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     List<Content> contents;
 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "products")
+    List<Category> categories;
+
 }

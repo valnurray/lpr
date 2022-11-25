@@ -47,8 +47,5 @@ public class Content {
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     List<Product> products;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "contents")
-    List<Category> categories;
 
 }

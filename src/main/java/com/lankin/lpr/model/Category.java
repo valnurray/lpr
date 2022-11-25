@@ -40,8 +40,8 @@ public class Category {
 
     @ManyToMany
     @JsonIgnore
-    @JoinTable(name = "category_content",
+    @JoinTable(name = "category_product",
             joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "content_id"))
-    List<Content> contents;
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    List<Product> products;
 }
