@@ -3,6 +3,7 @@ package com.lankin.lpr.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,6 +33,7 @@ public class Role {
     private String roles;
 
     @JsonIgnore
+    @ToString.Exclude
     @OneToMany(mappedBy = "role", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<User> users;
 
