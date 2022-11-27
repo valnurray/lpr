@@ -53,16 +53,16 @@ public class User {
     private Date birthday;
 
     @ManyToOne
-    @JsonIgnore
+//    @JsonIgnore
     @ToString.Exclude
     @JoinColumn(name = "roles_id")
     private Role role;
 
-    @JsonIgnore
+//    @JsonIgnore
     @OneToMany (mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<ProductMembers> productMembers;
 
-    @JsonIgnore
+//    @JsonIgnore
     @OneToMany (mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<OrderField> orderFields;
 
