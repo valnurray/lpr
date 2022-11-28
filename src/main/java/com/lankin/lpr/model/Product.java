@@ -46,6 +46,9 @@ public class Product {
     @Column(name = "info")
     private String info;
 
+    @Column(name = "imgpath")
+    private String imgpath;
+
     @JsonIgnore
     @ToString.Exclude
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, orphanRemoval = true)
@@ -56,7 +59,7 @@ public class Product {
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<OrderField> orderFields;
 
-    @JsonIgnore
+//    @JsonIgnore
     @ToString.Exclude
     @ManyToMany(mappedBy = "products")
     List<Content> contents;
