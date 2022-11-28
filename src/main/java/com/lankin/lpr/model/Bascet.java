@@ -3,6 +3,7 @@ package com.lankin.lpr.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,6 +38,7 @@ public class Bascet {
     private BigDecimal totalOrderPrice;
 
     @JsonIgnore
+    @ToString.Exclude
     @OneToMany(mappedBy = "bascet", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<OrderField> orderFields;
 

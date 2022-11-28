@@ -3,6 +3,7 @@ package com.lankin.lpr.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,6 +42,7 @@ public class Content {
     private String link;
 
     @JsonIgnore
+    @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "product_content",
             joinColumns = @JoinColumn(name = "content_id"),

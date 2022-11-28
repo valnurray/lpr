@@ -3,6 +3,7 @@ package com.lankin.lpr.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,12 +33,14 @@ public class ProductMembers {
     private Date orderTime;
 
     @ManyToOne()
-    @JsonIgnore
+//    @JsonIgnore
+    @ToString.Exclude
     @JoinColumn(name = "product_id")
     private Product product;
 
     @ManyToOne()
     @JsonIgnore
+    @ToString.Exclude
     @JoinColumn(name = "user_id")
     private User user;
 

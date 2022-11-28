@@ -3,6 +3,7 @@ package com.lankin.lpr.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,16 +38,19 @@ public class OrderField {
     private BigDecimal totalPrice;
 
     @JsonIgnore
+    @ToString.Exclude
     @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
 
     @JsonIgnore
+    @ToString.Exclude
     @ManyToOne()
     @JoinColumn(name = "product_id")
     private Product product;
 
     @JsonIgnore
+    @ToString.Exclude
     @ManyToOne()
     @JoinColumn(name = "bascet_id")
     private Bascet bascet;
