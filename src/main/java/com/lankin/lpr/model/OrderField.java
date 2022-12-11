@@ -43,13 +43,11 @@ public class OrderField {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @JsonIgnore
     @ToString.Exclude
     @ManyToOne()
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @JsonIgnore
     @ToString.Exclude
     @ManyToOne()
     @JoinColumn(name = "bascet_id")
