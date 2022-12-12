@@ -7,6 +7,7 @@ import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
@@ -60,7 +63,12 @@ public class User {
     @OneToMany (mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<ProductMembers> productMembers;
 
+    @JsonIgnore
     @OneToMany (mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<OrderField> orderFields;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bascet_id", referencedColumnName = "bascet_id")
+    private Bascet bascet;
 
 }

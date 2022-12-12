@@ -5,13 +5,17 @@ import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.ToString;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.List;
@@ -37,9 +41,13 @@ public class Bascet {
     @Column(name = "total_orders_price")
     private BigDecimal totalOrderPrice;
 
-    @JsonIgnore
+
     @ToString.Exclude
     @OneToMany(mappedBy = "bascet", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<OrderField> orderFields;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "bascet")
+    private User user;
 
 }

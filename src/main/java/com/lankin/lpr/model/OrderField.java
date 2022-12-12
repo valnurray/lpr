@@ -48,6 +48,7 @@ public class OrderField {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    @JsonIgnore
     @ToString.Exclude
     @ManyToOne()
     @JoinColumn(name = "bascet_id")

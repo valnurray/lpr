@@ -1,27 +1,91 @@
--- SET SQL_SAFE_UPDATES = 0;
--- DROP database lpr;
--- create database lpr;
 
-INSERT INTO lpr.roles (roles_id, roles)
+
+INSERT INTO bascet (bascet_id, count_orders, total_orders_price)
+values
+(1, 1, 20.00),
+(2, 2, 78.00),
+(3, 1, 15.00),
+(4, 0, 0),
+(5, 0, 0),
+(6, 0, 0),
+(7, 0, 0),
+(8, 0, 0),
+(9, 0, 0),
+(10, 0, 0),
+(11, 0, 0);
+
+INSERT INTO roles (roles_id, roles)
 VALUES
 (1, 'Admin'),
 (2, 'User');
 
-INSERT INTO lpr.users (user_id, login, Credentials, email, gender, birthday, roles_id)
+INSERT INTO users (user_id, login, Credentials, email, gender, birthday, roles_id, bascet_id)
 VALUES
-(1, 'Robert 1', 'Credentials', 'valnurray@gmai.com', 'male', null, 1),
-(2, 'Hector from Troy', 'Credentials', 'valnurray@gmai.com', 'male', null, 2),
-(3, 'Bigbag Cat', 'Credentials', 'valnurray@gmai.com', 'male', null, 2),
-(4, 'I dont know', 'Credentials', 'valnurray@gmai.com', 'male', null, 2),
-(5, 'Nikita Lankin', 'Credentials', 'valnurray@gmai.com', 'male', null, 2),
-(6, 'John Carpenter', 'Credentials', 'email@gmail.com', 'male', null, 2),
-(7, 'Robert Downey Junior', 'Credentials', 'emailsssss2@sssemail.com', 'male', null, 2),
-(8, 'Captain dead', 'Credentials', 'email@sssemail.com', 'male', null, 2),
-(9, 'Sone user', 'Credentials', 'email@sssemail.com', 'male', null, 2),
-(10, 'Capec', 'Credentials', 'email@sssemail.com', 'male', null, 2),
-(11, 'A eto kakec', 'Credentials', 'email@something.com', 'male', null, 2);
+(1, 'Robert 1', 'Credentials', 'valnurray@gmai.com', 'male', null, 1, 1),
+(2, 'Hector from Troy', 'Credentials', 'valnurray@gmai.com', 'male', null, 2, 2),
+(3, 'Bigbag Cat', 'Credentials', 'valnurray@gmai.com', 'male', null, 2, 3),
+(4, 'I dont know', 'Credentials', 'valnurray@gmai.com', 'male', null, 2, 4),
+(5, 'Nikita Lankin', 'Credentials', 'valnurray@gmai.com', 'male', null, 2, 5),
+(6, 'John Carpenter', 'Credentials', 'email@gmail.com', 'male', null, 2, 6),
+(7, 'Robert Downey Junior', 'Credentials', 'emailsssss2@sssemail.com', 'male', null, 2, 7),
+(8, 'Captain dead', 'Credentials', 'email@sssemail.com', 'male', null, 2, 8),
+(9, 'Sone user', 'Credentials', 'email@sssemail.com', 'male', null, 2, 9),
+(10, 'Capec', 'Credentials', 'email@sssemail.com', 'male', null, 2, 10),
+(11, 'A eto kakec', 'Credentials', 'email@something.com', 'male', null, 2, 11);
 
-INSERT INTO lpr.content (content_id, Title, Info, Link)
+insert into lpr.product (product_id, info, price, title, visibility) 
+values 
+(1, 'Japan travel guide. Traveling on the couch', 32.00, 'Travel to Japan', 'Y'),
+(2, 'Web design. Best practice', 20.00, 'Design', 'Y'),
+(3, '...not so far away', 45.00, 'Explore the galaxy', 'Y'),
+(4, '...not so far away', 45.00, 'Tokyo', 'Y'),
+(5, 'Modern architecture in modern cityes', 32.00, 'City Design', 'Y'),
+(6, 'Ancient architecture', 31.00, 'Ancient Design', 'Y'),
+(7, 'explore galaxy with Morgan Freeman', 13.00, 'Out of space', 'Y'),
+(8, 'Phisics for children 4-6 years', 54.00, 'Phisics', 'Y'),
+(9, 'Cosmic history', 99.00, 'LIFE BEYOND', 'Y'),
+(10, 'Math for children 6-8 years', 78.00, 'Math', 'Y'),
+(11, 'Math for children elementary school', 17.00, 'Math', 'Y'),
+(12, 'Math for children secondary school', 15.00, 'Math', 'Y'),
+(13, 'Math', 27.30, 'Math', 'Y'),
+(14, 'Math for students', 29.00, 'Phisics', 'Y'),
+(15, 'Big Bang Theory. were galaxy starts', 13.00, 'Big Bang', 'Y'),
+(16, 'Guitar for beginers', 47.00, 'Guitar l1', 'Y'),
+(17, 'Guitar not for beginers', 32.00, 'Guitar l2', 'Y'),
+(18, 'Playinf on piano', 21.00, 'Piano', 'Y'),
+(19, 'the best contemporary composers', 24.00, 'Classic music', 'Y'),
+(20, 'Math for students', 27.00, 'Math', 'Y');
+
+INSERT INTO product_members (product_members_id, order_time, product_id, user_id)
+values
+(1, null, 1 , 1),
+(2, null, 2 , 1),
+(3, null, 3 , 1),
+(4, null, 9 , 1),
+(5, null, 1 , 2),
+(6, null, 2 , 2),
+(7, null, 5 , 3),
+(8, null, 6 , 4),
+(9, null, 6 , 4),
+(10, null, 11 , 5),
+(11, null, 12 , 5),
+(12, null, 13 , 5),
+(13, null, 14 , 5),
+(14, null, 2 , 6),
+(15, null, 4 , 6),
+(16, null, 20 , 7),
+(17, null, 19 , 8),
+(18, null, 7 , 9),
+(19, null, 16 , 10);
+
+INSERT INTO orderfield (order_id, time_order, total_price, bascet_id, product_id, user_id)
+values
+(1, null, 20.00, 1, 2, 1),
+(2, null, 47.00, 2, 16, 2),
+(3, null, 31.00, 2, 6, 2),
+(4, null, 15.00, 3, 12, 3);
+
+INSERT INTO content (content_id, Title, Info, Link)
 values
 (1, 'Japan Travel', 'How to Spend 14 Days in Japan - A Japan Travel Itinerary', 'https://www.youtube.com/embed/IuTDuvYr7f0'),
 (2, 'Japan from Ptushkin', 'Japan that blows your mind. Big release.', 'https://www.youtube.com/embed/Gb0TQ7VeApY'),
@@ -47,91 +111,23 @@ values
 (22, 'Chapter 1', 'LIFE BEYOND: Chapter 1. Alien life, deep time, and our place in cosmic history', 'https://www.youtube.com/embed/SUelbSa-OkA'),
 (23, 'Chapter 2', 'LIFE BEYOND II: The Museum of Alien Life', 'https://www.youtube.com/embed/ThDYazipjSI'),
 (24, 'Chapter 3', 'LIFE BEYOND 3', 'https://www.youtube.com/embed/saWNMPL5ygk'),
-(25, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(26, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(27, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(28, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(29, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(30, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(31, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(32, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(33, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(34, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(35, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(36, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(37, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(38, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc'),
-(39, 'Lorem ipsum 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/embed/x1R2yQtErPc');
+(25, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(26, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(27, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(28, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(29, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(30, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(31, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(32, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(33, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(34, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(35, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(36, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(37, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(38, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg'),
+(39, 'Lorem ipsum 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'https://www.youtube.com/watch?v=90B6J_9wAfg');
 
-INSERT INTO lpr.category (category_id, description, title)
-VALUES
-(1, 'The amazing world of space',  'Space'),
-(2, 'We will teach you how to make music',  'Music'),
-(3, 'Discover the world of travel with us',  'Travel'),
-(4, 'Different areas of science',  'Sciense'),
-(5, 'The best design lessons',  'Design'),
-(6, 'Architecture in the modern and ancient world',  'Architecture'),
-(7, 'All the rest',  'Else');
-
-insert into lpr.product (product_id, info, price, title, visibility) 
-values 
-(1, 'Japan travel guide. Traveling on the couch', 32.00, 'Travel to Japan', 'Y'),
-(2, 'Web design. Best practice', 20.00, 'Design', 'Y'),
-(3, '...not so far away', 45.00, 'Explore the galaxy', 'Y'),
-(4, '...not so far away', 45.00, 'Tokyo', 'Y'),
-(5, 'Modern architecture in modern cityes', 32.00, 'City Design', 'Y'),
-(6, 'Ancient architecture', 31.00, 'Ancient Design', 'Y'),
-(7, 'explore galaxy with Morgan Freeman', 13.00, 'Out of space', 'Y'),
-(8, 'Phisics for children 4-6 years', 54.00, 'Phisics', 'Y'),
-(9, 'Cosmic history', 99.00, 'LIFE BEYOND', 'Y'),
-(10, 'Math for children 6-8 years', 78.00, 'Math', 'Y'),
-(11, 'Math for children elementary school', 17.00, 'Math', 'Y'),
-(12, 'Math for children secondary school', 15.00, 'Math', 'Y'),
-(13, 'Math', 27.30, 'Math', 'Y'),
-(14, 'Math for students', 29.00, 'Phisics', 'Y'),
-(15, 'Big Bang Theory. were galaxy starts', 13.00, 'Big Bang', 'Y'),
-(16, 'Guitar for beginers', 47.00, 'Guitar l1', 'Y'),
-(17, 'Guitar not for beginers', 32.00, 'Guitar l2', 'Y'),
-(18, 'Playinf on piano', 21.00, 'Piano', 'Y'),
-(19, 'the best contemporary composers', 24.00, 'Classic music', 'Y'),
-(20, 'Math for students', 27.00, 'Math', 'Y');
-
-INSERT INTO lpr.bascet (bascet_id, count_orders, total_orders_price)
-values
-(1, 1, 20.00),
-(2, 2, 78.00),
-(3, 1, 15.00);
-
-INSERT INTO lpr.orderfield (order_id, time_order, total_price, bascet_id, product_id, user_id)
-values
-(1, null, 20.00, 1, 2, 1),
-(2, null, 47.00, 2, 16, 3),
-(3, null, 31.00, 2, 6, 3),
-(4, null, 15.00, 3, 12, 4);
-
-INSERT INTO lpr.product_members (product_members_id, order_time, product_id, user_id)
-values
-(1, null, 1 , 1),
-(2, null, 2 , 1),
-(3, null, 3 , 1),
-(4, null, 9 , 1),
-(5, null, 1 , 2),
-(6, null, 2 , 2),
-(7, null, 5 , 3),
-(8, null, 6 , 4),
-(9, null, 6 , 4),
-(10, null, 11 , 5),
-(11, null, 12 , 5),
-(12, null, 13 , 5),
-(13, null, 14 , 5),
-(14, null, 2 , 6),
-(15, null, 4 , 6),
-(16, null, 20 , 7),
-(17, null, 19 , 8),
-(18, null, 7 , 9),
-(19, null, 16 , 10);
-
-INSERT INTO lpr.product_content (content_id, product_id)
+INSERT INTO product_content (content_id, product_id)
 values
 (1, 1),
 (2, 1),
@@ -173,7 +169,18 @@ values
 (38, 17),
 (39, 12);
 
-INSERT INTO lpr.category_product (category_id, product_id)
+
+INSERT INTO category (category_id, description, title)
+VALUES
+(1, 'The amazing world of space',  'Space'),
+(2, 'We will teach you how to make music',  'Music'),
+(3, 'Discover the world of travel with us',  'Travel'),
+(4, 'Different areas of science',  'Sciense'),
+(5, 'The best design lessons',  'Design'),
+(6, 'Architecture in the modern and ancient world',  'Architecture'),
+(7, 'All the rest',  'Else');
+
+INSERT INTO category_product (category_id, product_id)
 values
 (1, 3),
 (1, 7),
@@ -194,3 +201,11 @@ values
 (4, 20),
 (5, 5),
 (5, 6);
+
+
+
+
+
+
+
+
